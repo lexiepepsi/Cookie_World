@@ -1,0 +1,77 @@
+body {
+	background-color: pink;
+}
+
+.top-container {
+	background-image: url("background.jpg");
+	width: 100%;
+	border-style: dashed;
+	border-color: white;
+}
+
+.header {
+	width: 50%;
+	margin: 0 auto;
+	text-align: center;
+	color: white;
+	font-family: 'Courgette', cursive;
+	background-color: hotpink;
+	padding: 10px;
+	border-right-style: dashed;
+	border-left-style: dashed;
+	border-top-style: none;
+	border-bottom-style: none;
+	border-color: white;
+	border-radius: 10px;
+}
+
+.header h1 {
+	font-size: 100px;
+}
+
+.welcome {
+	margin-top: 15px;
+	font-family: 'Courgette', cursive;
+	color: hotpink;
+	text-align: center;
+	font-size: 30px;
+	background-color: white;
+	border-style: dashed;
+	border-color: pink;
+	padding: 5px;
+	padding-top: 15px;
+}
+
+.question {
+	margin-top: 20px;
+	font-family: 'Times New Roman', serif;
+	color: black;
+	font-size: 41px;
+	font-weight: bold;
+	text-align: center; 
+}
+
+.col-md-4 {
+	/*padding: 5px;*/
+}
+
+.cookieimg {
+	height: 300px;
+	background-size: cover;
+	background-position: center;
+	border-style: ridge;
+	border-color: dodgerblue;
+	border-width: 5px;
+}
+
+.choc {
+	background-image: url("choc.jpg");
+}
+
+.sugar {
+	background-image: url("sugar.jpg");
+}
+
+.lemon {
+	background-image: url("lemon.jpg");
+}
