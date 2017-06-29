@@ -1,6 +1,7 @@
 $(document).ready(function() {
-
-
+	// $("cookieimg").hover() {
+	// 	alert("Enter the number");
+	// };
 
 });
 
