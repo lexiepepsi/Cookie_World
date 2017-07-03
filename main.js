@@ -1,7 +1,7 @@
 $(document).ready(function() {
-	// $("cookieimg").hover() {
-	// 	alert("Enter the number");
-	// };
+	$("cookieimg").hover() {
+		alert("Enter the number");
+	};
 
 });
 

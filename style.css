@@ -110,6 +110,17 @@ input {
 	font-family: 'Times New Roman', serif;
 }
 
+button {
+	background-color: palevioletred;
+	width: 50%;
+	border-radius: 10px;
+	border-style: ridge;
+	border-color: dodgerblue;
+	color: mistyrose;
+	font-size: 24px;
+	font-family: 'Times New Roman', serif;
+}
+
 .ent {
 	background-color: white;
 }
