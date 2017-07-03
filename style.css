@@ -125,4 +125,26 @@ button {
 	background-color: white;
 }
 
+.bottom-container {
+	margin-top: 30px;
+}
+
+.basket {
+	font-family: 'Courgette', cursive;
+	color: black;
+	text-align: center;
+	font-size: 25px;
+	background-color: mistyrose;
+	border-style: dashed;
+	border-color: pink;
+	padding: 5px;
+	padding-top: 15px;
+}
+
+.qty {
+	font-size: 20px;
+	font-family: 'Courgette', cursive;
+	color: hotpink;	
+	text-align: center;
+}
 
