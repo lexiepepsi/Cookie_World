@@ -3,7 +3,7 @@ body {
 }
 
 .top-container {
-	background-image: url("background.jpg");
+	background-image: url("images/background.jpg");
 	width: 100%;
 	border-style: dashed;
 	border-color: white;
@@ -82,15 +82,15 @@ body {
 }
 
 .choc {
-	background-image: url("choc.jpg");
+	background-image: url("images/choc.jpg");
 }
 
 .sugar {
-	background-image: url("sugar.jpg");
+	background-image: url("images/sugar.jpg");
 }
 
 .lemon {
-	background-image: url("lemon.jpg");
+	background-image: url("images/lemon.jpg");
 }
 
 .cookiename {
