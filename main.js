@@ -5,6 +5,9 @@ $(document).ready(function() {
 
 // this works bc undefined = false, so if Cookies.get("choc-key") returns undefined, undefined will be false, if there is any value the conditional will be true and the code will run and create an alert
 
+
+// if the cookie key choc-key returns a value greater than 0 change the text of the choc-display to the value of the cookie key called choc-key, else change the text to 0
+
 	if (Cookies.get("choc-key") && parseInt(Cookies.get("choc-key")) > 0) {
 		$("#choc-display").text(Cookies.get("choc-key"));
 	} else {
@@ -54,19 +57,26 @@ $(document).ready(function() {
 // Why doesn't  hasBeenTrigged = false work?
 // = sets a value, === tests if condition is true/false
 
-	$(function(){
+	if (Cookies.get("choc-key")) {
+		alert("Welcome back! Let's eat some cookies!")
+	} else if (Cookies.get("sugar-key")) {
+		alert("Welcome back! Let's eat some cookies!")
+	} else if (Cookies.get("lemon-key")) {
+		alert("Welcome back! Let's eat some cookies!")
+	} else {
+		$(function(){
 
-    var hasBeenTrigged = false;
+	    var hasBeenTrigged = false;
 
-    $(window).scroll(function() {
-    	// hasBeenTriggered === false
-        if ($(this).scrollTop() >= 400 && !hasBeenTrigged) {
-            alert("Welcome! Please enter the number of each type of cookie you'd like in the boxes below and click Submit. If you change your mind click Reset to start over.");
-            hasBeenTrigged = true;
-	        }
-	    });
-	});
-
+	    $(window).scroll(function() {
+	    	// hasBeenTriggered === false
+	        if ($(this).scrollTop() >= 400 && !hasBeenTrigged) {
+	            alert("Welcome! Please enter the number of each type of cookie you'd like in the boxes below and click Submit. The cookies add up! If you change your mind click Reset to start over.");
+	            hasBeenTrigged = true;
+		        }
+		    });
+		});
+	}
 
 // SET NUMBER OF COOKIES TO A BROWSER COOKIE WHEN FORM IS SUBMITTED
 
@@ -82,14 +92,32 @@ $(document).ready(function() {
 	$("#choc-form").submit(function(event) {
 		event.preventDefault();
 
-		var numberofchocs = $("#choc-input").val();
-		Cookies.set("choc-key", numberofchocs);
 
-		if (Cookies.get("choc-key") > 0) {
-			$("#choc-display").text(numberofchocs);
+		if (Cookies.get("choc-key") && parseInt(Cookies.get("choc-key")) > 0) {
+			var oldvalue = parseInt(Cookies.get("choc-key"));
+
+			var numberofchocs = $("#choc-input").val();
+			Cookies.set("choc-key", oldvalue + parseInt(numberofchocs));
+
+			$("#choc-display").text(oldvalue + parseInt(numberofchocs));
+
 		} else {
-			alert("No negative cookies silly!")
+			var numberofchocs = $("#choc-input").val();
+			Cookies.set("choc-key", numberofchocs);
+
+			$("#choc-display").text(numberofchocs);
 		}
+
+
+// earlier code that used alert to check for negatives, solved this with min=1 on the input object in html, better bc it doesn't allow the form to be submitted so the cookie doesn't get set to negative or 0
+		// else if (Cookies.get("choc-key") > 0) {
+		// 		alert("You're silly! Don't you want some cookies?")
+		// } else {
+		// 	var numberofchocs = $("#choc-input").val();
+		// 	Cookies.set("choc-key", numberofchocs);
+
+		// 	$("#choc-display").text(numberofchocs);
+		// }
 
 	});
 
@@ -97,27 +125,40 @@ $(document).ready(function() {
 	$("#sugar-form").submit(function(event) {
 		event.preventDefault();
 
-		var numberofsugars = $("#sugar-input").val();
-		Cookies.set("sugar-key", numberofsugars);
+		if (Cookies.get("sugar-key") && parseInt(Cookies.get("sugar-key")) > 0) {
+			var oldvalue = parseInt(Cookies.get("sugar-key"));
 
-		if (Cookies.get("sugar-key") > 0) {
-			$("#sugar-display").text(numberofsugars);
+			var numberofsugars = $("#sugar-input").val();
+			Cookies.set("sugar-key", oldvalue + parseInt(numberofsugars));
+
+			$("#sugar-display").text(oldvalue + parseInt(numberofsugars));
+
 		} else {
-			alert("No negative cookies silly!")
+			var numberofsugars = $("#sugar-input").val();
+			Cookies.set("sugar-key", numberofsugars);
+
+			$("#sugar-display").text(numberofsugars);
 		}
 	});
+		
 
 	
 	$("#lemon-form").submit(function(event) {
 		event.preventDefault();
 
-		var numberoflemons = $("#lemon-input").val();
-		Cookies.set("lemon-key", numberoflemons);
+		if(Cookies.get("lemon-key") && parseInt(Cookies.get("lemon-key")) > 0) {
+			var oldvalue = parseInt(Cookies.get("lemon-key"));
 
-		if (Cookies.get("lemon-key") > 0) {
-			$("#lemon-display").text(numberoflemons);
+			var numberoflemons = $("#lemon-input").val();
+			Cookies.set("lemon-key", oldvalue + parseInt(numberoflemons));
+
+			$("#lemon-display").text(oldvalue + parseInt(numberoflemons));
+			
 		} else {
-			alert("No negative cookies silly!")
+			var numberoflemons = $("#lemon-input").val();
+			Cookies.set("lemon-key", numberoflemons);
+
+			$("#lemon-display").text(numberoflemons);
 		}
 
 	});
