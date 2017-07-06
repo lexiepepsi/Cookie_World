@@ -5,7 +5,6 @@ $(document).ready(function() {
 
 // this works bc undefined = false, so if Cookies.get("choc-key") returns undefined, undefined will be false, if there is any value the conditional will be true and the code will run and create an alert
 
-
 // if the cookie key choc-key returns a value greater than 0 change the text of the choc-display to the value of the cookie key called choc-key, else change the text to 0
 
 	if (Cookies.get("choc-key") && parseInt(Cookies.get("choc-key")) > 0) {
@@ -25,7 +24,6 @@ $(document).ready(function() {
 	} else {
 		$("#lemon-display").text(0);
 	}
-
 
 	// if (Cookies.get("choc-key") && parseInt(Cookies.get("choc-key")) > 0) {
 	// 	$("#choc-display").text(Cookies.get("choc-key"));
@@ -56,6 +54,7 @@ $(document).ready(function() {
 
 // Why doesn't  hasBeenTrigged = false work?
 // = sets a value, === tests if condition is true/false
+// would have to be: hasBeenTriggered === false
 
 	if (Cookies.get("choc-key")) {
 		alert("Welcome back! Let's eat some cookies!")
@@ -69,7 +68,6 @@ $(document).ready(function() {
 	    var hasBeenTrigged = false;
 
 	    $(window).scroll(function() {
-	    	// hasBeenTriggered === false
 	        if ($(this).scrollTop() >= 400 && !hasBeenTrigged) {
 	            alert("Welcome! Please enter the number of each type of cookie you'd like in the boxes below and click Submit. The cookies add up! If you change your mind click Reset to start over.");
 	            hasBeenTrigged = true;
@@ -87,7 +85,6 @@ $(document).ready(function() {
 // > we need event bc it gives you access to event object and allows us to access things like the default behavior, so we can change the default behavior to not refresh the page or attempt to push info to a server
 // what is .val doing?
 // > its a jquery function used on input fields to grab the value typed in an input field
-
 	
 	$("#choc-form").submit(function(event) {
 		event.preventDefault();
@@ -108,7 +105,6 @@ $(document).ready(function() {
 			$("#choc-display").text(numberofchocs);
 		}
 
-
 // earlier code that used alert to check for negatives, solved this with min=1 on the input object in html, better bc it doesn't allow the form to be submitted so the cookie doesn't get set to negative or 0
 		// else if (Cookies.get("choc-key") > 0) {
 		// 		alert("You're silly! Don't you want some cookies?")
@@ -118,8 +114,8 @@ $(document).ready(function() {
 
 		// 	$("#choc-display").text(numberofchocs);
 		// }
-
 	});
+
 
 
 	$("#sugar-form").submit(function(event) {
@@ -153,7 +149,7 @@ $(document).ready(function() {
 			Cookies.set("lemon-key", oldvalue + parseInt(numberoflemons));
 
 			$("#lemon-display").text(oldvalue + parseInt(numberoflemons));
-			
+
 		} else {
 			var numberoflemons = $("#lemon-input").val();
 			Cookies.set("lemon-key", numberoflemons);
