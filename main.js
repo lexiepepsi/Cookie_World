@@ -89,7 +89,6 @@ $(document).ready(function() {
 	$("#choc-form").submit(function(event) {
 		event.preventDefault();
 
-
 		if (Cookies.get("choc-key") && parseInt(Cookies.get("choc-key")) > 0) {
 			var oldvalue = parseInt(Cookies.get("choc-key"));
 
